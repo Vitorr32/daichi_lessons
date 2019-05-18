@@ -1,8 +1,7 @@
 main {
-    background-size: cover;
-    background-position: center;
+    position: absolute;    
     color: rgb(63, 63, 63);
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

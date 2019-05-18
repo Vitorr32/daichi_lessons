@@ -4,12 +4,17 @@ header {
     width: 100%;
     height: 75px;
     background: #333333;
+    transition: all .5s ease-in-out;
+}
+
+header:hover {
+    height: 100px;
 }
 
 header a {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     width: 120px;
     color: whitesmoke;
@@ -17,7 +22,6 @@ header a {
     border: 1px solid gray;
     text-align: center;
     cursor: pointer;
-
     transition: all .2s ease-in-out;
 }
 
@@ -30,6 +34,6 @@ header a h1 {
     margin: 0px;
 }
 
-header a label{
+header a label {
     cursor: pointer;
 }

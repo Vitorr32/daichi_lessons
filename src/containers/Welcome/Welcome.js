@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import content from '../../assets/content/welcome';
 import background from '../../assets/images/background.jpg';
+import WelcomeCard from '../../components/WelcomeCard/WelcomeCard';
 
 import './Welcome.css';
-import WelcomeCard from '../../components/WelcomeCard/WelcomeCard';
 
 export default class Welcome extends Component {
     render() {
         return (
-            <main style={{ backgroundImage: `url(${background})` }}>
+            <main style={{ backgroundImage: `url(${background})` }} className="background">
                 <h1>Starting to learn Japanese</h1>
                 <p>
                     Choose your poison, want to learn gramatical rules? Pick the Daichi lessons,
