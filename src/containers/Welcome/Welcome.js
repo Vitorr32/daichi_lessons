@@ -18,8 +18,8 @@ export default class Welcome extends Component {
                     use the 'Basic Kanji' book.
                 </p>
                 {
-                    content.map(item => {
-                        return <WelcomeCard {...item} />
+                    content.map((item, index) => {
+                        return <WelcomeCard key={`welcome_card_${index}`} {...item} />
                     })
                 }
             </main>

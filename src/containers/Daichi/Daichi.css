@@ -6,10 +6,18 @@
     flex-direction: column;
 }
 
-.daichi .content{
+.daichi .content {
     flex: 1;
 }
 
-.daichi .content h1{
+.daichi .content h1 {
     color: gray;
+}
+
+.daichi .dashboard {
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
 }

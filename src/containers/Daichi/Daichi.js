@@ -14,11 +14,13 @@ export default class Daichi extends Component {
                 <Header />
                 <div className="content">
                     <h1>What book you want to see?</h1>
-                    {
-                        chapters.map((chapter, index) => {
-                            return <ChapterCard {...chapter} index={index} />
-                        })
-                    }
+                    <div className="dashboard">
+                        {
+                            chapters.map((chapter, index) => {
+                                return <ChapterCard key={`chapter_${index}`} {...chapter} index={index} />
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         );
