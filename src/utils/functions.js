@@ -1,0 +1,1 @@
+export const addFurigana = (word, furigana) => `<span furigana=${furigana}>${word}</span>`

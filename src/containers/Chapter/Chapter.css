@@ -1,0 +1,15 @@
+.example span {
+    position: relative;
+}
+
+.example span::before {
+    content: attr(furigana);
+    color: gray;
+    font-size: 50%;
+    line-height: 1;
+    position: absolute;
+    top: -0.5em;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+}

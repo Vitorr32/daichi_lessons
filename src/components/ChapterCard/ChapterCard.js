@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Transition } from 'react-spring/renderprops';
+import { Link } from 'react-router-dom';
 
 import './ChapterCard.css';
 
@@ -13,16 +14,17 @@ export default class ChapterCard extends Component {
         }
     }
     render() {
-        const { chapter, title, sub_title, description, background } = this.props;
+        const { number, title, sub_title, description, background } = this.props;
 
         return (
-            <div className="chapter_card background"
+            <Link className="chapter_card background"
+                to={`/daichi/${number}`}
                 style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${background})` }}
                 onMouseEnter={() => this.setState({ showContent: true })}
                 onMouseLeave={() => this.setState({ showContent: false })}>
                 <div className="chapter_wrapper">
-                    <label>Chapter</label>
-                    <h1 className="chapter">{chapter}</h1>
+                    <legend>Chapter</legend>
+                    <h1 className="chapter">{number}</h1>
                 </div>
                 <Transition
                     items={!this.state.showContent}
@@ -47,14 +49,12 @@ export default class ChapterCard extends Component {
                     {
                         show => show && (props =>
                             <div className="description" style={{ transform: `translateX(${props.translate}px)` }}>
-                                <label>{description}</label>
+                                <legend>{description}</legend>
                             </div>
                         )
                     }
                 </Transition>
-
-
-            </div>
+            </Link>
         );
     }
 }

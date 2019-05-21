@@ -13,7 +13,6 @@ export default class Daichi extends Component {
             <div className="daichi background" style={{ backgroundImage: `url(${background})` }}>
                 <Header />
                 <div className="content">
-                    <h1>What book you want to see?</h1>
                     <div className="dashboard">
                         {
                             chapters.map((chapter, index) => {
