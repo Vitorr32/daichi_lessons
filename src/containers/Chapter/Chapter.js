@@ -29,35 +29,38 @@ export default class Chapter extends Component {
         }
 
         return (
-            <main>
+            <main id="chapter">
                 <Header />
-                <h1>{chapter.title}</h1>
-                <h3>{chapter.sub_title}</h3>
-                <label>Chapter {chapter.number}</label>
+                <div className="chapter_content_wrapper">
+                    <div className="chapter_options">
+                        <label className="chapter">Chapter {chapter.number}</label>
+                    </div>
+                    <h1 className="title">{chapter.title}</h1>
+                    <h3 className="sub_title">{chapter.sub_title}</h3>
 
-                <div className="chapter_content">
-                    {
-                        chapter.grammar.map(rule => {
-                            return (
-                                <div>
-                                    <h1>{rule.title}</h1>
-                                    <h3>{rule.sub_title}</h3>
-                                    <p>{rule.summary}</p>
-                                    {
-                                        rule.examples.map(example => {
-                                            return (
-                                                <div className="example">
-                                                    <h2 dangerouslySetInnerHTML={this.createMarkup(example.japanese)} />
-                                                    <h4 >{example.english}</h4>
-                                                    <p dangerouslySetInnerHTML={this.createMarkup(example.explanation)} />
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            )
-                        })
-                    }
+
+                    <div className="chapter_content">
+                        {
+                            chapter.grammar.map(rule => {
+                                return (
+                                    <div>
+                                        <p className="summary">{rule.summary}</p>
+                                        {
+                                            rule.examples.map(example => {
+                                                return (
+                                                    <div className="example">
+                                                        <h2 className="japanese" dangerouslySetInnerHTML={this.createMarkup(example.japanese)} />
+                                                        <h4 className="english">{example.english}</h4>
+                                                        <p className="explanation" dangerouslySetInnerHTML={this.createMarkup(example.explanation)} />
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </main>
         );

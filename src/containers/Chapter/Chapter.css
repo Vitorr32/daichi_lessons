@@ -1,15 +1,72 @@
-.example span {
-    position: relative;
+#chapter {
+    background: whitesmoke;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.example span::before {
-    content: attr(furigana);
-    color: gray;
-    font-size: 50%;
-    line-height: 1;
-    position: absolute;
-    top: -0.5em;
-    white-space: nowrap;
+#chapter .chapter_content_wrapper {
+    flex: 1;
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#chapter .chapter_content_wrapper .chapter_options {
+    background: rgb(165, 13, 43);
+    padding: 10px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+#chapter .chapter_content_wrapper .title {
     text-align: center;
-    width: 100%;
+    font-size: 48px;
+}
+
+#chapter .chapter_content_wrapper .sub_title {
+    text-align: center;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+#chapter .chapter_content_wrapper .chapter_content {
+    width: 80%;
+    margin: 40px auto;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .summary {
+    white-space: pre-wrap;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .japanese, #chapter .chapter_content_wrapper .chapter_content .example .explanation {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 28px;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .english {
+    display: inline-block;
+    background: gray;
+    margin: 0 auto;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .english:hover {
+    background: transparent;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .explanation {
+    font-size: 20px;
 }

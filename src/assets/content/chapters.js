@@ -36,9 +36,9 @@ const daichi_chapters = [
             {
                 title: 'その時',
                 sub_title: 'Sonotoki',
-                summary: `You can describe a action that happen in a certain condition using とき at the end of the first sentence\n
-            That's connect to the second setence, that describes the action which happens on the first sentence situation\n\n
-            But, there's some rules to how the first sentence word that comes before the とき, check the examples!`,
+                summary: `You can describe a action that happens in a certain condition using とき at the end of the conditional situation.
+                The second sentece then describes a action which happens on the first sentence conditional situation, it can be pretty much anything.
+            Careful tough, there's some rules to how the ending of the conditional situation connects with the とき, check the examples!`,
                 examples: [
                     {
                         japanese: `${addFurigana('暑', 'あつ')}い時, 泳ぎに行きます`,
@@ -53,12 +53,12 @@ const daichi_chapters = [
                     {
                         japanese: 'ゲームをする時, 時間が早くなります',
                         english: `Time goes fast when I play games`,
-                        explanation: `An ${addFurigana('動詞', 'どうし')}(Verb) can be in the ${addFurigana('辞書形', 'じしょけい')} before the とき`
+                        explanation: `An ${addFurigana('動詞', 'どうし')} can be in the ${addFurigana('辞書形', 'じしょけい')} before the とき`
                     },
                     {
                         japanese: `子供の時, 木に ${addFurigana('登', 'のぼ')}ります`,
                         english: `When a child, I would climb trees`,
-                        explanation: `An ${addFurigana('動詞', 'どうし')}(Verb) can be in the ${addFurigana('辞書形', 'じしょけい')} before the とき`
+                        explanation: `An ${addFurigana('名詞', 'めいし')} demands an の particle before the とき`
                     }
                 ]
             }

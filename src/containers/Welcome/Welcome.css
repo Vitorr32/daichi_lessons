@@ -1,4 +1,4 @@
-main {
+.welcome {
     position: absolute;    
     color: rgb(63, 63, 63);
     height: 100%;
@@ -8,20 +8,20 @@ main {
     justify-content: center;
 }
 
-main>h1 {
+.welcome>h1 {
     margin: 0 auto 20px auto;
     text-align: center;
     width: 90%;
 }
 
-main>p {
+.welcome>p {
     margin: 0 auto;
     width: 80%;
     text-align: center;
 }
 
 @media (min-width:1068px) {
-    main>p {
+    .welcome>p {
         width: 100%;
         box-sizing: border-box;
         padding: 0px 25%;

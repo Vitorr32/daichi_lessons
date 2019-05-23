@@ -9,7 +9,7 @@ import './Welcome.css';
 export default class Welcome extends Component {
     render() {
         return (
-            <main style={{ backgroundImage: `url(${background})` }} className="background">
+            <main style={{ backgroundImage: `url(${background})` }} className="welcome background">
                 <h1>Starting to learn Japanese</h1>
                 <p>
                     Choose your poison, want to learn gramatical rules? Pick the Daichi lessons,
