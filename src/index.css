@@ -9,13 +9,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.background {
-  background-size: cover;
-  background-position: center;
-}
 
 h1, h2, h3, h4, p {
   margin: 0;
+}
+
+/*Averga style of the background image*/
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /*Furigana applying style*/

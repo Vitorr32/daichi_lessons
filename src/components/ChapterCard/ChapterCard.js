@@ -4,18 +4,69 @@ import { Transition } from 'react-spring/renderprops';
 import { Link } from 'react-router-dom';
 
 import './ChapterCard.css';
+import ChapterCardModal from '../ChapterCardModal/ChapterCardModal';
 
 export default class ChapterCard extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            showContent: false
+            showContent: false,
+            openModal: false
         }
     }
+
     render() {
         const { number, title, sub_title, description, background } = this.props;
+        return (
+            <div className="chapter_card background"
+                style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${background})` }}
+                onMouseEnter={() => this.setState({ showContent: true })}
+                onMouseLeave={() => this.setState({ showContent: false })}
+                onClick={() => this.setState({ openModal: true })}>
+                <div className="chapter_wrapper">
+                    <legend>Chapter</legend>
+                    <h1 className="chapter">{number}</h1>
+                </div>
+                <Transition
+                    items={!this.state.showContent}
+                    from={{ translate: 300 }}
+                    enter={{ translate: 0 }}
+                    leave={{ translate: 300 }}>
+                    {
+                        show => show && (props =>
+                            <div style={{ transform: `translateX(${props.translate}px)` }} className="header">
+                                <h1 className="title">{title}</h1>
+                                <h3 className="sub_title">{sub_title}</h3>
+                            </div>
+                        )
+                    }
+                </Transition>
 
+                <Transition
+                    items={this.state.showContent}
+                    from={{ translate: -300 }}
+                    enter={{ translate: 0 }}
+                    leave={{ translate: -300 }}>
+                    {
+                        show => show && (props =>
+                            <div className="description" style={{ transform: `translateX(${props.translate}px)` }}>
+                                <legend>{description}</legend>
+                            </div>
+                        )
+                    }
+                </Transition>
+
+                {
+                    this.state.openModal
+                        ?
+                        <ChapterCardModal {...this.props} />
+                        :
+                        null
+                }
+            </div>
+        );
+        /*
         return (
             <Link className="chapter_card background"
                 to={`/daichi/${number}`}
@@ -54,8 +105,17 @@ export default class ChapterCard extends Component {
                         )
                     }
                 </Transition>
+
+                {
+                    this.state.openModal
+                        ?
+                        <ChapterCardModal {...this.props} />
+                        :
+                        null
+                }
             </Link>
         );
+        */
     }
 }
 

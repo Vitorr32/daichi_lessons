@@ -27,15 +27,17 @@ const daichi_chapters = [
         ]
     },
     {
+        number: '25',
+        title: 'その時は…',
+    },
+    {
         number: '26',
-        title: 'その時',
-        sub_title: 'Sono toki',
+        title: 'その時は…',
         background: 'https://i.imgur.com/yCtOUWW.jpg',
         description: 'Using とき we can refer to activities realized on certain times or conditions, like childhood or vacation',
         grammar: [
             {
                 title: 'その時',
-                sub_title: 'Sonotoki',
                 summary: `You can describe a action that happens in a certain condition using とき at the end of the conditional situation.
                 The second sentece then describes a action which happens on the first sentence conditional situation, it can be pretty much anything.
             Careful tough, there's some rules to how the ending of the conditional situation connects with the とき, check the examples!`,
@@ -63,6 +65,10 @@ const daichi_chapters = [
                 ]
             }
         ]
+    },
+    {
+        number: '27',
+        title: 'その時は…',
     }
 ]
 

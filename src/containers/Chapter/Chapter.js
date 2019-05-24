@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import { Redirect } from 'react-router-dom';
 
 import './Chapter.css';
+import ChapterTransitionButton from '../../components/ChapterTransitionButton/ChapterTransitionButton';
 
 export default class Chapter extends Component {
 
@@ -20,6 +21,14 @@ export default class Chapter extends Component {
         return { __html: content };
     }
 
+    nextChapter() {
+
+    }
+
+    previousChapter() {
+
+    }
+
     render() {
         const chapter = this.getChapter();
 
@@ -32,18 +41,20 @@ export default class Chapter extends Component {
             <main id="chapter">
                 <Header />
                 <div className="chapter_content_wrapper">
-                    <div className="chapter_options">
-                        <label className="chapter">Chapter {chapter.number}</label>
-                    </div>
-                    <h1 className="title">{chapter.title}</h1>
-                    <h3 className="sub_title">{chapter.sub_title}</h3>
+                    <div className="chapter_header background" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${chapter.background})` }}>
+                        <ChapterTransitionButton chapter={parseInt(chapter.number, 10) - 1} action={this.nextChapter} left />
+                        <ChapterTransitionButton chapter={parseInt(chapter.number, 10) + 1} action={this.previousChapter} right />
+                        <h2 className="chapter">Chapter {chapter.number}</h2>
+                        <h1 className="title">{chapter.title}</h1>
 
+                    </div>
 
                     <div className="chapter_content">
                         {
                             chapter.grammar.map(rule => {
                                 return (
                                     <div>
+                                        <h1 className="title">{rule.title}</h1>
                                         <p className="summary">{rule.summary}</p>
                                         {
                                             rule.examples.map(example => {
