@@ -1,80 +1,74 @@
 import React, { Component } from 'react';
 
 import { Keyframes, config } from 'react-spring/renderprops';
+import DarkOverlay from '../DarkOverlay/DarkOverlay';
 
 import './ChapterCardModal.css';
 
-
 export default class ChapterCardModal extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            wrapperBounds: null
-        }
-
-        this.container = React.createRef();
-    }
-
-    componentDidMount() {
-        this.setState({ wrapperBounds: this.container.current.getBoundingClientRect() });
-    }
-
-    getKeyframes(wrapperBounds) {
+    getOpeningKeyframes(wrapperBounds, opening, closing) {
         return Keyframes.Spring(async next => {
-            while (true) {
+            if (opening) {
                 await next({
-                    from: { opacity: 0, height: wrapperBounds.height, width: wrapperBounds.width, background: 'blue' },
-                    config: { duration: 3000 },
+                    from: {
+                        position: 'fixed',
+                        top: `${wrapperBounds.top}px`,
+                        left: `${wrapperBounds.left}px`,
+                        opacity: 0,
+                        height: wrapperBounds.height,
+                        width: wrapperBounds.width,
+                        background: 'black'
+                    },
                     to: { opacity: 1 }
                 })
                 await next({
-                    from: { left: '0%' },
-                    left: '70%',
-                    background: 'seagreen',
+                    top: `${window.innerHeight / 2 - wrapperBounds.height / 2}px`,
+                    left: `${window.innerWidth / 2 - wrapperBounds.width / 2}px`,
+                    background: 'crimson',
+                    config: config.wobbly
                 })
                 await next({
-                    from: { top: '0%' },
-                    top: '40%',
-                    background: 'plum',
-                    config: config.wobbly,
+                    top: `${window.innerHeight / 2 - 600 / 2}px`,
+                    left: `${window.innerWidth / 2 - 400 / 2}px`,
+                    width: 400,
+                    height: 600,
+                    config: config.wobbly
                 })
-                await next({ left: '0%', background: 'hotpink' })
+            }
+            else if (closing) {
                 await next({
-                    top: '0%',
-                    background: 'teal',
+                    from: { opacity: 1 },
+                    opacity: 0
                 })
-                await next({
-                    opacity: 0,
-                    width: 40,
-                    height: 40,
-                    background: 'black',
-                })
+                this.props.modalHasClosed();
             }
         })
     }
 
+    closeModalKeyframes() {
+
+    }
+
     render() {
-        const OpenModal = this.getKeyframes(this.state.wrapperBounds);
+        const { opening, closing, closeModal, bounds } = this.props;
+
+        if (!opening && !closing) { return null }
+
+        const OpenModal = this.getOpeningKeyframes(bounds, opening, closing);
 
         return (
-            <div className="chapter_modal_wrapper" ref={this.container} >
-                {
-                    this.container.current
-                        ?
-                        <OpenModal>
-                            {
-                                props =>
-                                    <div style={props}>
-
-                                    </div>
-                            }
-                        </OpenModal>
-                        :
-                        null
-                }
+            <div className="chapter_modal_wrapper">
+                <DarkOverlay opening={opening} onOverlayClick={this.closeModalKeyframes} />
+                <OpenModal>
+                    {
+                        props =>
+                            <div style={props}>
+                                <button onClick={closeModal}></button>
+                            </div>
+                    }
+                </OpenModal>
             </div>
-
         )
     }
 }
