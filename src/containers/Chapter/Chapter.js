@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 import './Chapter.css';
 import ChapterTransitionButton from '../../components/ChapterTransitionButton/ChapterTransitionButton';
+import { createMarkup } from '../../utils/functions';
 
 export default class Chapter extends Component {
 
@@ -16,11 +17,7 @@ export default class Chapter extends Component {
         }
         return chapters.find(chapter => chapter.number === chapter_number);
     }
-
-    createMarkup(content) {
-        return { __html: content };
-    }
-
+    
     nextChapter() {
 
     }
@@ -60,9 +57,9 @@ export default class Chapter extends Component {
                                             rule.examples.map(example => {
                                                 return (
                                                     <div className="example">
-                                                        <h2 className="japanese" dangerouslySetInnerHTML={this.createMarkup(example.japanese)} />
+                                                        <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
                                                         <h4 className="english">{example.english}</h4>
-                                                        <p className="explanation" dangerouslySetInnerHTML={this.createMarkup(example.explanation)} />
+                                                        <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
                                                     </div>
                                                 )
                                             })

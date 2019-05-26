@@ -7,7 +7,6 @@ import Chapter from '../Chapter/Chapter';
 
 import './App.css';
 
-
 function App() {
   return (
     <Router >

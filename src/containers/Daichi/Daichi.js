@@ -6,8 +6,8 @@ import chapters from '../../assets/content/chapters';
 import Header from '../../components/Header/Header';
 
 import './Daichi.css';
-import ChapterCard from '../../components/ChapterCard/ChapterCard';
-import ChapterCardModal from '../../components/ChapterCardModal/ChapterCardModal';
+import ChapterCard from '../../components/Daichi/ChapterCard/ChapterCard';
+import Modal from '../../components/Daichi/ChapterCard/Modal/Modal';
 import { openDaichiModal, closedDaichiModal, closingDaichiModal } from '../../redux/actions';
 
 const mapStateToProps = state => {
@@ -44,7 +44,7 @@ class Daichi extends Component {
                         }
                     </div>
                 </div>
-                <ChapterCardModal opening={opening} closing={closing} modalHasClosed={closeModal} closeModal={modalClosing} chapter={selectedChapter} bounds={selectedBounds} />
+                <Modal opening={opening} closing={closing} modalHasClosed={closeModal} closeModal={modalClosing} chapter={selectedChapter} bounds={selectedBounds} />
             </div>
         );
     }

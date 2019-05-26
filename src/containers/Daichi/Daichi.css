@@ -6,16 +6,16 @@
     flex-direction: column;
 }
 
-.daichi .content {
+.daichi > .content {
     margin-top: 20px;
     flex: 1;
 }
 
-.daichi .content h1 {
+.daichi > .content h1 {
     color: gray;
 }
 
-.daichi .dashboard {
+.daichi > .content > .dashboard {
     width: 90%;
     margin: 0 auto;
 
