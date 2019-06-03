@@ -17,7 +17,7 @@ export default () => {
             </div>
             <Link className="header_link" to={'/daichi'}> {addFuriganaAsHTML('大地', 'だいち')} </Link>
             <Link className="header_link" to={'/Renshuuchou'}>{addFuriganaAsHTML('練習帳', 'れんしゅうちょう')} </Link>
-            <Link className="header_link" to={'/kanji'}>{addFuriganaAsHTML('練習帳', 'かんじ')}</Link>
+            <Link className="header_link" to={'/kanji'}>{addFuriganaAsHTML('漢字', 'かんじ')}</Link>
         </header>
     );
 }

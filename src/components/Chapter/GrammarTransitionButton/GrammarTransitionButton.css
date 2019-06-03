@@ -1,0 +1,83 @@
+.grammar_transition_button {
+  position: relative;
+  font-size: 30px;
+  background: whitesmoke;
+  color: gray;
+  text-decoration: none;
+  display: flex;
+  margin-left: auto;
+  max-width: 50%;
+  align-items: center;
+  border-radius: 5px;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgb(209, 209, 209);  
+}
+
+.grammar_transition_button.left {
+  float: left;
+  padding: 10px 20px 10px 50px;
+  margin: 0px 0px 20px 20px;
+}
+
+.grammar_transition_button.right {
+  float: right;
+  padding: 10px 50px 10px 20px;
+  margin: 0px 20px 20px 0px;
+}
+
+.grammar_transition_button:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.grammar_transition_button > .texts {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.grammar_transition_button > .texts::after {
+  content: "";
+  height: 100%;
+  border-left: 1px solid rgb(185, 185, 185);
+  position: absolute;
+  top: 0px;
+}
+
+.grammar_transition_button.left > .texts::after {
+  left: -10px;
+}
+
+.grammar_transition_button.right > .texts::after {
+  right: -10px;
+}
+
+.grammar_transition_button > .texts > .title {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grammar_transition_button > .texts > .label {
+  font-size: 12px;
+}
+
+.grammar_transition_button > .icon {
+  position: absolute;
+  font-size: 36px;
+  top: 0px;
+  height: 100%;
+}
+
+.grammar_transition_button.right > .icon {
+  right: 10px;
+}
+
+.grammar_transition_button.left > .icon {
+  left: 10px;
+}

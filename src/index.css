@@ -21,19 +21,3 @@ h1, h2, h3, h4, p {
   background-position: center;
   background-repeat: no-repeat;
 }
-
-/*Furigana applying style*/
-
-span.furigana {
-  position: relative;
-}
-
-span.furigana::before {
-  content: attr(furigana);
-  font-size: 50%;
-  line-height: 1;
-  position: absolute;
-  top: -0.5em;
-  text-align: center;
-  width: 100%;
-}

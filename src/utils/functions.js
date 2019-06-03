@@ -1,5 +1,6 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 
-export const addFurigana = (word, furigana) => `<span class="furigana" furigana=${furigana}>${word}</span>`
-export const addFuriganaAsHTML = (word, furigana, elementClass = '') => <span className={`furigana ${elementClass}`} furigana={furigana}>{word}</span>
-export const createMarkup = content => ({ __html: content })
+export const addFurigana = (word, furigana) => `<ruby>${word}<rt>${furigana}</rt></ruby>`
+export const addFuriganaAsHTML = (word, furigana, elementClass = '') => <ruby className={elementClass}>{word}<rt>{furigana}</rt></ruby>
+export const createMarkup = content => ({ __html: DOMPurify.sanitize(content) })

@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Welcome} />
         <Route path="/daichi" exact component={Daichi} />
-        <Route path="/daichi/:chapter" component={Chapter} />
+        <Route path="/daichi/:chapter/:grammar?" component={Chapter} />
       </Switch>
     </Router>
   );

@@ -2,22 +2,62 @@ import React, { Component } from 'react';
 
 import chapters from '../../assets/content/chapters';
 import Header from '../../components/Header/Header';
+import * as Scroll from 'react-scroll';
 import { Redirect } from 'react-router-dom';
 
-import './Chapter.css';
-import ChapterTransitionButton from '../../components/ChapterTransitionButton/ChapterTransitionButton';
+import GrammarTransitionButton from '../../components/Chapter/GrammarTransitionButton/GrammarTransitionButton';
+import ChapterTransitionButton from '../../components/Chapter/ChapterTransitionButton/ChapterTransitionButton';
 import { createMarkup } from '../../utils/functions';
+import { Transition, config } from 'react-spring/renderprops';
+
+import { EXTRA_CONTENT_TABLE_TYPE } from '../../utils/constants';
+import ExtraCompositedTable from '../../components/Chapter/ExtraCompositedTable/ExtraCompositedTable';
+
+import './Chapter.css';
 
 export default class Chapter extends Component {
+    constructor(props) {
+        super(props);
 
-    getChapter() {
-        const chapter_number = this.props.match.params.chapter;
-        if (!chapter_number) {
-            return null;
+        this.state = {
+            chapter: null,
+            grammar: null
         }
-        return chapters.find(chapter => chapter.number === chapter_number);
     }
-    
+
+    componentWillMount() {
+        this.getChapterFromParams(this.props.match.params.chapter, this.props.match.params.grammar);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match !== prevProps.match) {
+            this.getChapterFromParams(this.props.match.params.chapter, this.props.match.params.grammar);
+            Scroll.animateScroll.scrollToTop(100);
+        }
+    }
+
+    getChapterFromParams(chapterIndex, grammarIndex = 0) {
+        if (!chapterIndex) {
+            return this.setState({ chapter: null, grammar: null });
+        }
+
+        const chapter = chapters.find(chapter => chapter.number === chapterIndex);
+        //If the selected chapter has no grammar content
+        if (chapter.grammar.length === 0) {
+            return this.setState({ chapter, grammar: null });
+        }
+
+        //If the selected chapter number is above or under the actual number of grammar rules
+        if (grammarIndex < 0 || grammarIndex >= chapter.grammar.length) {
+            return this.setState({ chapter, grammar: null });
+        }
+
+        this.setState({
+            chapter,
+            grammar: chapter.grammar[grammarIndex]
+        })
+    }
+
     nextChapter() {
 
     }
@@ -26,8 +66,30 @@ export default class Chapter extends Component {
 
     }
 
+    renderExtraTable(table, key) {
+        if (table.compositedTable) {
+            return <ExtraCompositedTable key={key} table={table} />
+        }
+        else {
+            return null;
+        }
+
+    }
+
+    renderExtraContentForChapter(extras) {
+        return extras.map((extra, index) => {
+            switch (extra.type) {
+                case EXTRA_CONTENT_TABLE_TYPE:
+                    return this.renderExtraTable(extra, `extra_${index}`);
+                default:
+                    console.error("Unknown extra type");
+                    return null;
+            }
+        }).filter(extra => extra !== null);
+    }
+
     render() {
-        const chapter = this.getChapter();
+        const { chapter, grammar } = this.state;
 
         //If chapter number is not in the query params or the chapter don't exist, redirect to daichi page.
         if (!chapter) {
@@ -45,32 +107,51 @@ export default class Chapter extends Component {
                         <h1 className="title">{chapter.title}</h1>
 
                     </div>
-
-                    <div className="chapter_content">
-                        {
-                            chapter.grammar.map(rule => {
-                                return (
-                                    <div>
-                                        <h1 className="title">{rule.title}</h1>
-                                        <p className="summary">{rule.summary}</p>
-                                        {
-                                            rule.examples.map(example => {
-                                                return (
-                                                    <div className="example">
-                                                        <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
-                                                        <h4 className="english">{example.english}</h4>
-                                                        <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
+                    <Transition
+                        items={grammar}
+                        keys={grammar.title}
+                        from={{ transform: 'translateX(100%)', opacity: 0 }}
+                        enter={{ transform: 'translateX(0%)', opacity: 1 }}
+                        leave={{ transform: 'translateX(-100%)', opacity: 0, position: 'absolute', top: '0px' }}
+                        config={config.slow}
+                    >
+                        {show => show && (props =>
+                            <div className="chapter_content" style={props}>
+                                <h1 className="title">{grammar.title}</h1>
+                                <p className="summary" dangerouslySetInnerHTML={createMarkup(grammar.summary)} />
+                                {
+                                    grammar.examples.map((example, index) => {
+                                        return (
+                                            <div key={`example_${index}`} className="example">
+                                                <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
+                                                <h4 className="english">{example.english}</h4>
+                                                <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
+                                            </div>
+                                        )
+                                    })
+                                }
+                                {
+                                    grammar.extra
+                                        ?
+                                        this.renderExtraContentForChapter(grammar.extra)
+                                        :
+                                        null
+                                }
+                            </div>
+                        )}
+                    </Transition>
+                    <div className="grammar_nav">
+                        <GrammarTransitionButton
+                            show={(this.props.match.params.grammar || 0) > 0}
+                            grammar={chapter.grammar[parseInt(this.props.match.params.grammar || 0) - 1]}
+                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) - 1}`} left />
+                        <GrammarTransitionButton
+                            show={(this.props.match.params.grammar || 0) < chapter.grammar.length - 1}
+                            grammar={chapter.grammar[parseInt(this.props.match.params.grammar || 0) + 1]}
+                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) + 1}`} />
                     </div>
                 </div>
-            </main>
+            </main >
         );
     }
 }
