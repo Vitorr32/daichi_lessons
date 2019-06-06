@@ -10,7 +10,7 @@ import ChapterTransitionButton from '../../components/Chapter/ChapterTransitionB
 import { createMarkup } from '../../utils/functions';
 import { Transition, config } from 'react-spring/renderprops';
 
-import { EXTRA_CONTENT_TABLE_TYPE } from '../../utils/constants';
+import { EXTRA_CONTENT_SIMPLE_TABLE_TYPE, EXTRA_CONTENT_COMPOSITED_TABLE_TYPE } from '../../utils/constants';
 import ExtraCompositedTable from '../../components/Chapter/ExtraCompositedTable/ExtraCompositedTable';
 
 import './Chapter.css';
@@ -66,21 +66,13 @@ export default class Chapter extends Component {
 
     }
 
-    renderExtraTable(table, key) {
-        if (table.compositedTable) {
-            return <ExtraCompositedTable key={key} table={table} />
-        }
-        else {
-            return null;
-        }
-
-    }
-
     renderExtraContentForChapter(extras) {
         return extras.map((extra, index) => {
             switch (extra.type) {
-                case EXTRA_CONTENT_TABLE_TYPE:
-                    return this.renderExtraTable(extra, `extra_${index}`);
+                case EXTRA_CONTENT_SIMPLE_TABLE_TYPE:
+                    return null//TODO
+                case EXTRA_CONTENT_COMPOSITED_TABLE_TYPE:
+                    return <ExtraCompositedTable key={`extra_${index}`} table={extra} />
                 default:
                     console.error("Unknown extra type");
                     return null;
@@ -129,6 +121,13 @@ export default class Chapter extends Component {
                                             </div>
                                         )
                                     })
+                                }
+                                {
+                                    grammar.extra
+                                        ?
+                                        <span className="extra_title">Extras</span>
+                                        :
+                                        null
                                 }
                                 {
                                     grammar.extra

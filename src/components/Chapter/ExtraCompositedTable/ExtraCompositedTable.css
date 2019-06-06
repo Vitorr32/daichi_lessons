@@ -1,43 +1,40 @@
-.composited_table {
+.composited_table > p {
+  padding: 10px;
+  text-align: center;
+}
+
+.composited_table > table {
   border: 1px solid rgb(206, 206, 206);
+  text-align: center;
 }
 
-.composited_table thead .composited_table_header {
-  position: relative;
+.composited_table > table thead .composited_table_header {
   background: crimson;
-  width: 100px;
-  height: 80px;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px;
 }
 
-.composited_table thead .composited_table_header div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: rotateZ(30deg);
-}
-
-.composited_table thead .composited_table_header span {
-  position: relative;
-  font-size: 12px;
+.composited_table > table thead {
+  background: crimson;
   color: whitesmoke;
 }
 
-.composited_table thead .composited_table_header span:first-of-type {
-  padding-bottom: 2px;
+.composited_table > table thead th {
+  padding: 20px 0px 10px 0px;
 }
 
-.composited_table thead .composited_table_header span:nth-of-type(2) {
-    padding-top: 2px;
+.composited_table > table tbody {
+  background: whitesmoke;
 }
 
-.composited_table thead .composited_table_header span:first-of-type::after {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  border-bottom: 1px solid whitesmoke;
+.composited_table > table tbody th {
+  background: crimson;
+  color: whitesmoke;
+  padding: 20px 0px 10px 0px;
 }
 
-
+.composited_table > table tbody td {
+  font-size: 16px;
+  padding: 20px 5px;
+}

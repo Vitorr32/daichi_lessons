@@ -1,5 +1,5 @@
 import { addFurigana } from "../../utils/functions";
-import { EXTRA_CONTENT_TABLE_TYPE } from "../../utils/constants";
+import { EXTRA_CONTENT_COMPOSITED_TABLE_TYPE } from "../../utils/constants";
 
 const daichi_chapters = [
     {
@@ -104,13 +104,12 @@ const daichi_chapters = [
                 ],
                 extra: [
                     {
-                        type: EXTRA_CONTENT_TABLE_TYPE,
-                        compositedTable: true,
+                        type: EXTRA_CONTENT_COMPOSITED_TABLE_TYPE,
                         title: 'Quick Hint',
                         description: `To make things easier to understand, we made the following table to guide you in the forms that the ${addFurigana('動詞', 'どうし')} can take and what it implies`,
-                        headers: [addFurigana('辞書形', 'じしょけい'), addFurigana('他動詞', 'たどうし')],
-                        rowHeaders: [addFurigana('辞書形', 'じしょけい'), addFurigana('他動詞', 'たどうし')],
-                        compositedTableHeaders: ['First sentence', 'Second sentence'],
+                        headers: [`1${addFurigana('句', 'く')} ${addFurigana('辞書形', 'じしょけい')}`, `1${addFurigana('句', 'く')} ${addFurigana('他動詞', 'たどうし')}`],
+                        rowHeaders: [`2${addFurigana('句', 'く')} ${addFurigana('辞書形', 'じしょけい')}`, `2${addFurigana('句', 'く')} ${addFurigana('他動詞', 'たどうし')}`],
+                        compositedTableHeader: 'Sentences',
                         content: [
                             [
                                 'First sentence not over, Second will happen before it',
@@ -122,6 +121,16 @@ const daichi_chapters = [
                             ]
                         ],
                         legend: []
+                    }
+                ]
+            },
+            {
+                title: 'なにがなければなりませんか?',
+                summary: `When you need to specify something that is nescessary or required for something you can use use なければなりませんか.
+                It need to be used with a ${addFurigana('動詞', 'どうし')} that is in the negative and informal form followed by  なければなりませんか`,
+                examples: [
+                    {
+
                     }
                 ]
             }
