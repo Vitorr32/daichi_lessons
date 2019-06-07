@@ -126,11 +126,49 @@ const daichi_chapters = [
             },
             {
                 title: 'なにがなければなりませんか?',
-                summary: `When you need to specify something that is nescessary or required for something you can use use なければなりませんか.
+                summary: `When you need to specify a action that is nescessary or required you can use use なければなりませんか.
                 It need to be used with a ${addFurigana('動詞', 'どうし')} that is in the negative and informal form followed by  なければなりませんか`,
                 examples: [
                     {
-
+                        japanese: `${addFurigana('勉強', 'べんきょう')}しなければなりません`,
+                        english: `I must study`,
+                        explanation: `using なければなりません indicates a urgency or need to a actions to be peformed without fail`
+                    },
+                    {
+                        dialog: true,
+                        actors: ['ポロー', '信長'],
+                        conversation: [
+                            {
+                                actor: '信長',
+                                speech: 'ポローさん, 今日暇だったら, 映画を見に行きませんか'
+                            },
+                            {
+                                //Actor can be either it's name or index in array
+                                actor: 0,
+                                speech: 'すみません, 今日の午後はブラジル大使館へ行かなければなりません'
+                            },
+                            {
+                                actor: 1,
+                                speech: 'ええ-, なんですか'
+                            },
+                            {
+                                actor: 'ポロー',
+                                speech: `ビザを${addFurigana('一新', 'いっしん')}しに行く, ブラジル人が日本に住むにはビザで持たなければなりません`
+                            },
+                            {
+                                actor: 1,
+                                speech: `そですか...${addFurigana('残念', 'ざんねん')}ですね, じゃ, 明日どうですか`
+                            },
+                            {
+                                actor: 'ポロー',
+                                speech: `明日は大丈夫です`
+                            }
+                        ],
+                        explanation: `なければなりません can also be used as response to questions, or when you nee`
+                    },
+                    {
+                        japanese: `あ, もう 5時まだ. ごはん, つからなきゃ`,
+                        explanation: `The informal form of なければなりません is なきゃ, making the expression way easier`
                     }
                 ]
             }

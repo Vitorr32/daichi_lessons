@@ -80,6 +80,22 @@ export default class Chapter extends Component {
         }).filter(extra => extra !== null);
     }
 
+    renderDialog(dialog, key) {
+        return (
+            <div key={key} className="example">
+                {dialog.conversation.map((phrase, index) => {
+                    return (
+                        <div className="dialog" key={`dialog_${index}`}>
+                            <span className="actor">{isNaN(phrase.actor) ? phrase.actor : dialog.actors[phrase.actor]} : </span>
+                            <span className="speech" dangerouslySetInnerHTML={createMarkup(phrase.speech)} />
+                        </div>
+                    );
+                })}
+                <p className="explanation" dangerouslySetInnerHTML={createMarkup(dialog.explanation)} />
+            </div>
+        );
+    }
+
     render() {
         const { chapter, grammar } = this.state;
 
@@ -114,11 +130,15 @@ export default class Chapter extends Component {
                                 {
                                     grammar.examples.map((example, index) => {
                                         return (
-                                            <div key={`example_${index}`} className="example">
-                                                <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
-                                                <h4 className="english">{example.english}</h4>
-                                                <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
-                                            </div>
+                                            example.dialog
+                                                ?
+                                                this.renderDialog(example, `example_${index}`)
+                                                :
+                                                <div key={`example_${index}`} className="example">
+                                                    <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
+                                                    {example.english ? <h4 className="english">{example.english}</h4> : null}
+                                                    <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
+                                                </div>
                                         )
                                     })
                                 }

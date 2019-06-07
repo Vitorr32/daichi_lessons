@@ -105,3 +105,19 @@
   content: "";
   border-bottom: 1px solid rgb(196, 196, 196);
 }
+
+/*Dialog Type styles*/
+#chapter .chapter_content_wrapper .chapter_content .example .dialog {
+  width: 80%;
+  margin: 5px auto;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .dialog .actor{
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+#chapter .chapter_content_wrapper .chapter_content .example .dialog .speech{
+  font-size: 18px;
+}
