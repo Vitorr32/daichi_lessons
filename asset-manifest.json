@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/daichi_lessons/static/css/main.d05d4541.chunk.css",
+    "main.js": "/daichi_lessons/static/js/main.f83dbdbb.chunk.js",
+    "main.js.map": "/daichi_lessons/static/js/main.f83dbdbb.chunk.js.map",
+    "runtime~main.js": "/daichi_lessons/static/js/runtime~main.a03bb54f.js",
+    "runtime~main.js.map": "/daichi_lessons/static/js/runtime~main.a03bb54f.js.map",
+    "static/js/2.cc714a78.chunk.js": "/daichi_lessons/static/js/2.cc714a78.chunk.js",
+    "static/js/2.cc714a78.chunk.js.map": "/daichi_lessons/static/js/2.cc714a78.chunk.js.map",
+    "index.html": "/daichi_lessons/index.html",
+    "precache-manifest.ace3ebfce4ab1aa190213cb5c1478645.js": "/daichi_lessons/precache-manifest.ace3ebfce4ab1aa190213cb5c1478645.js",
+    "service-worker.js": "/daichi_lessons/service-worker.js",
+    "static/css/main.d05d4541.chunk.css.map": "/daichi_lessons/static/css/main.d05d4541.chunk.css.map",
+    "static/media/background.jpg": "/daichi_lessons/static/media/background.4ecec60a.jpg",
+    "static/media/radial-stripes.svg": "/daichi_lessons/static/media/radial-stripes.e9bef895.svg"
+  }
+}
