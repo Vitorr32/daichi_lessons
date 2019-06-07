@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b47386c86d3b45fd4dee00783195fed6",
+    "revision": "08c193349a52999a85ed895ef66a3044",
     "url": "/daichi_lessons/index.html"
   },
   {
-    "revision": "3920ed2b519efb69638b",
+    "revision": "999e43d3755e2ad46234",
     "url": "/daichi_lessons/static/css/main.d05d4541.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/daichi_lessons/static/js/2.cc714a78.chunk.js"
   },
   {
-    "revision": "3920ed2b519efb69638b",
-    "url": "/daichi_lessons/static/js/main.f83dbdbb.chunk.js"
+    "revision": "999e43d3755e2ad46234",
+    "url": "/daichi_lessons/static/js/main.bb62a887.chunk.js"
   },
   {
     "revision": "8f608bbed2a5e1a24201",
