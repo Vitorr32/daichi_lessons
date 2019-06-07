@@ -10,6 +10,9 @@ header {
     transition: all .5s ease-in-out;
     overflow: hidden;
     color: whitesmoke;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
 header:hover {
@@ -81,12 +84,15 @@ header .header_link:hover {
         height: auto;
         padding: 10px;
     }
+
     header:hover {
         height: auto;
     }
+
     header .header_animation {
         display: none;
     }
+
     header .header_link {
         font-size: 24px;
         width: 80px
@@ -109,6 +115,7 @@ header .header_link:hover {
         -o-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     to {
         -ms-transform: rotate(360deg);
         -moz-transform: rotate(360deg);

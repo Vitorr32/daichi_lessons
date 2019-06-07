@@ -1,0 +1,14 @@
+.example .dialog {
+    width: 80%;
+    margin: 5px auto;
+}
+
+.example .dialog .actor {
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.example .dialog .speech {
+    font-size: 18px;
+}

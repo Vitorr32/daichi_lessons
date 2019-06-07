@@ -1,0 +1,38 @@
+.chapter_content {
+    width: 80%;
+    margin: 40px auto;
+  }
+  
+  .chapter_content .summary {
+    white-space: pre-wrap;
+  }
+  
+  .chapter_content .example {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .chapter_content .example .japanese,
+  .chapter_content .example .explanation {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 28px;
+  }
+  
+  .chapter_content .example .english {
+    display: inline-block;
+    background: gray;
+    margin: 0 auto;
+    transition: all .4s ease-in-out;
+  }
+  
+  .chapter_content .example .english:hover {
+    background: transparent;
+  }
+  
+  .chapter_content .example .explanation {
+    font-size: 20px;
+  }

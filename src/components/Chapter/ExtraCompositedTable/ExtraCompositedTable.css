@@ -6,6 +6,7 @@
 .composited_table > table {
   border: 1px solid rgb(206, 206, 206);
   text-align: center;
+  margin: 0 auto;
 }
 
 .composited_table > table thead .composited_table_header {

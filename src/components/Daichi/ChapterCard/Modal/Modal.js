@@ -46,11 +46,11 @@ export default class ChapterCardModal extends Component {
                     config: config.gentle,
                 })*/
                 await next({
-                    top: `${window.innerHeight / 2 - 500 / 2}px`,
+                    top: `${window.innerHeight / 2 - 600 / 2}px`,
                     left: `${window.innerWidth / 2 - 600 / 2}px`,
                     width: 600,
-                    height: 500,
-                    config: config.gentle
+                    height: 600,
+                    config: { tension: 600, friction: 50,  }
                 })
                 await next({
                     from: {
@@ -61,7 +61,8 @@ export default class ChapterCardModal extends Component {
                         content_visibility: 'visible',
                         content_translate: 0,
                         content_opacity: 1
-                    }
+                    },
+                    config: config.stiff
                 })
             }
             else if (closing) {
@@ -69,9 +70,9 @@ export default class ChapterCardModal extends Component {
                     //Reapply end of opening style
                     //Modal style
                     position: 'fixed',
-                    top: `${window.innerHeight / 2 - 500 / 2}px`,
+                    top: `${window.innerHeight / 2 - 600 / 2}px`,
                     left: `${window.innerWidth / 2 - 600 / 2}px`,
-                    height: 500,
+                    height: 600,
                     width: 600,
                     content_visibility: 'visible',
                     //Content style
@@ -82,7 +83,8 @@ export default class ChapterCardModal extends Component {
                 })
                 await next({
                     content_translate: -300,
-                    content_opacity: 0
+                    content_opacity: 0,
+                    config: config.stiff
                 })
                 await next({
                     content_visibility: 'hidden',
@@ -94,6 +96,7 @@ export default class ChapterCardModal extends Component {
                     left: `${wrapperBounds.left}px`,
                     height: wrapperBounds.height,
                     width: wrapperBounds.width,
+                    config: { tension: 600, friction: 50,  }
                 })
                 /*
                 await next({

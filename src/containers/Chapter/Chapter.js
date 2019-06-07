@@ -7,13 +7,10 @@ import { Redirect } from 'react-router-dom';
 
 import GrammarTransitionButton from '../../components/Chapter/GrammarTransitionButton/GrammarTransitionButton';
 import ChapterTransitionButton from '../../components/Chapter/ChapterTransitionButton/ChapterTransitionButton';
-import { createMarkup } from '../../utils/functions';
 import { Transition, config } from 'react-spring/renderprops';
 
-import { EXTRA_CONTENT_SIMPLE_TABLE_TYPE, EXTRA_CONTENT_COMPOSITED_TABLE_TYPE } from '../../utils/constants';
-import ExtraCompositedTable from '../../components/Chapter/ExtraCompositedTable/ExtraCompositedTable';
-
 import './Chapter.css';
+import ChapterContent from '../../components/Chapter/ChapterContent/ChapterContent';
 
 export default class Chapter extends Component {
     constructor(props) {
@@ -21,7 +18,9 @@ export default class Chapter extends Component {
 
         this.state = {
             chapter: null,
-            grammar: null
+            grammar: null,
+            rules: [],
+            fowardAnimation: true
         }
     }
 
@@ -34,6 +33,13 @@ export default class Chapter extends Component {
             this.getChapterFromParams(this.props.match.params.chapter, this.props.match.params.grammar);
             Scroll.animateScroll.scrollToTop(100);
         }
+    }
+
+    renderPageRules(grammar) {
+        //Needed for smooth transition
+        this.setState({
+            rules: grammar.map(rule => ({ style }) => <ChapterContent style={style} grammar={rule} />)
+        })
     }
 
     getChapterFromParams(chapterIndex, grammarIndex = 0) {
@@ -54,8 +60,8 @@ export default class Chapter extends Component {
 
         this.setState({
             chapter,
-            grammar: chapter.grammar[grammarIndex]
-        })
+            grammar: grammarIndex
+        }, this.renderPageRules(chapter.grammar))
     }
 
     nextChapter() {
@@ -64,36 +70,6 @@ export default class Chapter extends Component {
 
     previousChapter() {
 
-    }
-
-    renderExtraContentForChapter(extras) {
-        return extras.map((extra, index) => {
-            switch (extra.type) {
-                case EXTRA_CONTENT_SIMPLE_TABLE_TYPE:
-                    return null//TODO
-                case EXTRA_CONTENT_COMPOSITED_TABLE_TYPE:
-                    return <ExtraCompositedTable key={`extra_${index}`} table={extra} />
-                default:
-                    console.error("Unknown extra type");
-                    return null;
-            }
-        }).filter(extra => extra !== null);
-    }
-
-    renderDialog(dialog, key) {
-        return (
-            <div key={key} className="example">
-                {dialog.conversation.map((phrase, index) => {
-                    return (
-                        <div className="dialog" key={`dialog_${index}`}>
-                            <span className="actor">{isNaN(phrase.actor) ? phrase.actor : dialog.actors[phrase.actor]} : </span>
-                            <span className="speech" dangerouslySetInnerHTML={createMarkup(phrase.speech)} />
-                        </div>
-                    );
-                })}
-                <p className="explanation" dangerouslySetInnerHTML={createMarkup(dialog.explanation)} />
-            </div>
-        );
     }
 
     render() {
@@ -118,56 +94,27 @@ export default class Chapter extends Component {
                     <Transition
                         items={grammar}
                         keys={grammar.title}
-                        from={{ transform: 'translateX(100%)', opacity: 0 }}
+                        from={{ transform: `translateX(${this.state.fowardAnimation ? '100%' : "-100%"})`, opacity: 0 }}
                         enter={{ transform: 'translateX(0%)', opacity: 1 }}
-                        leave={{ transform: 'translateX(-100%)', opacity: 0, position: 'absolute', top: '0px' }}
-                        config={config.slow}
+                        leave={{ transform: `translateX(${this.state.fowardAnimation ? '-100%' : "100%"})`, opacity: 0, position: 'absolute', top: '0px' }}
+                        config={config.stiff}
                     >
-                        {show => show && (props =>
-                            <div className="chapter_content" style={props}>
-                                <h1 className="title">{grammar.title}</h1>
-                                <p className="summary" dangerouslySetInnerHTML={createMarkup(grammar.summary)} />
-                                {
-                                    grammar.examples.map((example, index) => {
-                                        return (
-                                            example.dialog
-                                                ?
-                                                this.renderDialog(example, `example_${index}`)
-                                                :
-                                                <div key={`example_${index}`} className="example">
-                                                    <h2 className="japanese" dangerouslySetInnerHTML={createMarkup(example.japanese)} />
-                                                    {example.english ? <h4 className="english">{example.english}</h4> : null}
-                                                    <p className="explanation" dangerouslySetInnerHTML={createMarkup(example.explanation)} />
-                                                </div>
-                                        )
-                                    })
-                                }
-                                {
-                                    grammar.extra
-                                        ?
-                                        <span className="extra_title">Extras</span>
-                                        :
-                                        null
-                                }
-                                {
-                                    grammar.extra
-                                        ?
-                                        this.renderExtraContentForChapter(grammar.extra)
-                                        :
-                                        null
-                                }
-                            </div>
-                        )}
+                        {index => props => {
+                            const Content = this.state.rules[index];
+                            return <Content style={props} />
+                        }}
                     </Transition>
                     <div className="grammar_nav">
                         <GrammarTransitionButton
                             show={(this.props.match.params.grammar || 0) > 0}
                             grammar={chapter.grammar[parseInt(this.props.match.params.grammar || 0) - 1]}
-                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) - 1}`} left />
+                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) - 1}`}
+                            animationSetter={() => this.setState({ fowardAnimation: false })} left />
                         <GrammarTransitionButton
                             show={(this.props.match.params.grammar || 0) < chapter.grammar.length - 1}
                             grammar={chapter.grammar[parseInt(this.props.match.params.grammar || 0) + 1]}
-                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) + 1}`} />
+                            target={`/daichi/${chapter.number}/${parseInt(this.props.match.params.grammar || 0) + 1}`}
+                            animationSetter={() => this.setState({ fowardAnimation: true })} />
                     </div>
                 </div>
             </main >

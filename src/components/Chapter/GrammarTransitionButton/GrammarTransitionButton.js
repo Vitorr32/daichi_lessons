@@ -12,7 +12,9 @@ export default (props) => {
     }
 
     return (
-        <Link to={props.target} className={`grammar_transition_button ${props.left ? 'left' : 'right'}`}>
+        <Link to={props.target}
+            className={`grammar_transition_button ${props.left ? 'left' : 'right'}`}
+            onClick={props.animationSetter}>
             <div className="texts">
                 <span className="title">{props.grammar.title}</span>
                 <span className="label">{props.left ? 'Previous grammar' : 'Next grammar'}</span>
