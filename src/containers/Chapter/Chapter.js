@@ -64,6 +64,18 @@ export default class Chapter extends Component {
         }, this.renderPageRules(chapter.grammar))
     }
 
+    getChapterFromNumber(number, offset = 0) {
+        return chapters.find(chapter => parseInt(chapter.number, 10) === parseInt(number) - offset);
+    }
+
+    hasAfter(number, chapters) {
+        return chapters.length - 1 > chapters.findIndex(chapter => parseInt(chapter.number, 10) === parseInt(number));
+    }
+
+    hasBefore(number, chapters) {
+        return 0 < chapters.findIndex(chapter => parseInt(chapter.number, 10) === parseInt(number));
+    }
+
     nextChapter() {
 
     }
@@ -85,11 +97,18 @@ export default class Chapter extends Component {
                 <Header />
                 <div className="chapter_content_wrapper">
                     <div className="chapter_header background" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${chapter.background})` }}>
-                        <ChapterTransitionButton chapter={parseInt(chapter.number, 10) - 1} action={this.nextChapter} left />
-                        <ChapterTransitionButton chapter={parseInt(chapter.number, 10) + 1} action={this.previousChapter} right />
+                        <ChapterTransitionButton
+                            show={this.hasBefore(chapter.number, chapters)}
+                            target={`/daichi/${parseInt(chapter.number, 10) - 1}`}
+                            chapter={this.getChapterFromNumber(chapter.number, -1)}
+                            action={this.nextChapter} left />
+                        <ChapterTransitionButton
+                            show={this.hasAfter(chapter.number, chapters)}
+                            target={`/daichi/${parseInt(chapter.number, 10) + 1}`}
+                            chapter={this.getChapterFromNumber(chapter.number, +1)}
+                            action={this.previousChapter} right />
                         <h2 className="chapter">Chapter {chapter.number}</h2>
                         <h1 className="title">{chapter.title}</h1>
-
                     </div>
                     <Transition
                         items={grammar}

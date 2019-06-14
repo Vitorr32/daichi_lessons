@@ -9,11 +9,11 @@ import './App.css';
 
 function App() {
   return (
-    <Router >
-      <Switch>
-        <Route path="/" exact component={Welcome} />
+    <Router basename="/daichi_lessons">
+      <Switch>        
         <Route path="/daichi" exact component={Daichi} />
         <Route path="/daichi/:chapter/:grammar?" component={Chapter} />
+        <Route path="/" component={Welcome} />
       </Switch>
     </Router>
   );

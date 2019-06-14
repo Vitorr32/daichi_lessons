@@ -1,12 +1,20 @@
 import React from 'react';
 
-import './ChapterTransitionButton';
+import { Link } from 'react-router-dom';
 
-export default (props) => {
+import './ChapterTransitionButton.css';
+
+export default ({ show, target, left, chapter }) => {
+    if (!show) {
+        return null;
+    }
+
     return (
-        <div className="transition_button" style={{ float: props.left ? 'left' : 'right' }}>
-            <span>{props.chapter}</span>
-            <button>Yolo</button>
-        </div>
+        <Link to={target}
+            className={`chapter_transition_button ${left ? 'left' : 'right'}`}>
+            <span className="label">Chapter</span>
+            <span className="number">{chapter.number}</span>
+            <span className="title">{chapter.title}</span>
+        </Link>
     )
 }
