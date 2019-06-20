@@ -164,7 +164,7 @@ const daichi_chapters = [
                                 speech: `明日は大丈夫です`
                             }
                         ],
-                        explanation: `なければなりません can also be used as response to questions, or when you nee`
+                        explanation: `なければなりません can also be used as response to questions, is often used as a reason for refusal to invitations`
                     },
                     {
                         japanese: `あ, もう 5時まだ. ごはん, つからなきゃ`,
@@ -176,7 +176,60 @@ const daichi_chapters = [
     },
     {
         number: '27',
-        title: 'その時は…',
+        title: 'どうしたんですか',
+        background: '',
+        description: 'In this chapter we learn how to ask for more informations about something in a more proper way using the ~んです, how to ask for a suggestion or help and how to indicate that you are doing two things at the same time',
+        grammar: [
+            {
+                title: 'どうしたんですか',
+                summary: 'んです is used to ask or to give a explanation about a certain situation, んです is only used when both parts of the conversation share a ceratin information',
+                examples: [
+                    {
+                        dialog: true,
+                        actors: ['A', 'B'],
+                        conversation: [
+                            {
+                                actor: 'A',
+                                speech: '学校を休みんだんですか'
+                            },
+                            {
+                                actor: 'B',
+                                speech: `はい,${addFurigana('風邪', 'かぜ')}を引いたんです`
+                            }
+                        ],
+                        explanation: `Knowning or hearing that B was not in school, A used んです to request futher information`
+                    },
+                    {
+                        dialog: true,
+                        actors: ['A', 'B1', 'B2', 'B3', 'B4'],
+                        conversation: [
+                            {
+                                actor: 'A',
+                                speech: '試合はいつ始めたんですか'
+                            },
+                            {
+                                actor: 'B1',
+                                speech: `8時30分です`
+                            },
+                            {
+                                actor: 'B2',
+                                speech: `8時30分に始めます`
+                            },
+                            {
+                                actor: 'B3',
+                                speech: `えと...8時30分に始まると思います`
+                            },
+                            {
+                                actor: 'B4',
+                                speech: `そうね...8時30分の前に始めなければなりません`
+                            }
+                        ],
+                        explanation: `Note that when a simple fact is used as response, んです is not used because is not a explanation
+                        but a statement`
+                    }
+                ]
+            }
+        ]
     }
 ]
 
