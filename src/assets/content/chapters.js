@@ -228,6 +228,22 @@ const daichi_chapters = [
                         but a statement`
                     }
                 ]
+            },
+            {
+                title:'んですが...',
+                summary: 'You can use んですが to explain a situation before requesting advice or help',
+                examples: [                    
+                    {
+                        japanese: `強いインフルエンザがひいたんですが, 良くて近い病院を教えてください`,
+                        english: `I have a strong flu, would you tell me a good and close hospital?`,
+                        explanation: `んですが can be used with ${addFurigana('動詞', 'どうし')} in ${addFurigana('辞書形', 'じしょけい')} or past form`
+                    },
+                    {
+                        japanese: `雨が降って傘がもってないですが...`,
+                        english: `It's raining and I didn't bring a umbrella...`,
+                        explanation: `If the second sentece can be inferred from the first, it is often omitted`
+                    }
+                ]
             }
         ]
     }

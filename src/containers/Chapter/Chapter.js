@@ -65,7 +65,7 @@ export default class Chapter extends Component {
     }
 
     getChapterFromNumber(number, offset = 0) {
-        return chapters.find(chapter => parseInt(chapter.number, 10) === parseInt(number) - offset);
+        return chapters.find(chapter => parseInt(chapter.number, 10) === parseInt(number) + offset);
     }
 
     hasAfter(number, chapters) {
@@ -105,7 +105,7 @@ export default class Chapter extends Component {
                         <ChapterTransitionButton
                             show={this.hasAfter(chapter.number, chapters)}
                             target={`/daichi/${parseInt(chapter.number, 10) + 1}`}
-                            chapter={this.getChapterFromNumber(chapter.number, +1)}
+                            chapter={this.getChapterFromNumber(chapter.number, 1)}
                             action={this.previousChapter} right />
                         <h2 className="chapter">Chapter {chapter.number}</h2>
                         <h1 className="title">{chapter.title}</h1>

@@ -1,70 +1,70 @@
 .chapter_transition_button {
-    position: absolute;
-    min-height: 198px;
-    background: crimson;
-    color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid darkred;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-    top: 0px;
-    transition: all .3s ease-in-out;
-}
-
-.chapter_transition_button.right {
-    left: 0px;
-    transform: translateX(-100%);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+  position: absolute;
+  min-height: 198px;
+  background: crimson;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid darkred;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  top: 0px;
+  transition: all 0.3s ease-in-out;
 }
 
 .chapter_transition_button.left {
-    right: 0;
-    transform: translateX(100%);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+  left: 0px;
+  transform: translateX(-100%);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.chapter_transition_button.right {
+  right: 0;
+  transform: translateX(100%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .chapter_transition_button:hover {
-    background: whitesmoke;
-    color: crimson;
+  background: whitesmoke;
+  color: crimson;
 }
 
 .chapter_transition_button .label {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .chapter_transition_button .number {
-    font-size: 36px;
-    margin-bottom: 10px;
-    position: relative;
-    line-height: 36px;
+  font-size: 36px;
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 36px;
 }
 
 .chapter_transition_button .number::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: -5px;
-    left: 0px;
-    border-bottom: 1px solid darkred;
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -5px;
+  left: 0px;
+  border-bottom: 1px solid darkred;
 }
 
 .chapter_transition_button .title {
-    flex: 1;
-    display: inline-block;
-    font-size: 18px;
-    line-height: 18px;
-    -webkit-writing-mode: vertical-rl;
-    -moz-writing-mode: vertical-rl;
-    -ms-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-    width: 50%;
-    margin: 0 auto;
+  flex: 1;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  width: 50%;
+  margin: 0 auto;
 }
