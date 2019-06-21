@@ -226,22 +226,79 @@ const daichi_chapters = [
                         ],
                         explanation: `Note that when a simple fact is used as response, んです is not used because is not a explanation
                         but a statement`
+                    },
+                    {
+                        japanese: `どこ行くの?`,
+                        english: `Where are you going?`,
+                        explanation: `The informal form of んですか is の the question particle is dropped in favor of the の
+                        with the same rising intonation`
                     }
                 ]
             },
             {
-                title:'んですが...',
+                title: 'んですが...',
                 summary: 'You can use んですが to explain a situation before requesting advice or help',
-                examples: [                    
+                examples: [
                     {
-                        japanese: `強いインフルエンザがひいたんですが, 良くて近い病院を教えてください`,
+                        japanese: `強いインフルエンザが引いたんですが, 良くて近い病院を教えてください`,
                         english: `I have a strong flu, would you tell me a good and close hospital?`,
                         explanation: `んですが can be used with ${addFurigana('動詞', 'どうし')} in ${addFurigana('辞書形', 'じしょけい')} or past form`
                     },
                     {
-                        japanese: `雨が降って傘がもってないですが...`,
+                        japanese: `雨が降って${addFurigana('傘', 'かさ')}がもってないですが...`,
                         english: `It's raining and I didn't bring a umbrella...`,
-                        explanation: `If the second sentece can be inferred from the first, it is often omitted`
+                        explanation: `If the second sentece can be inferred from the first it is often omitted`
+                    }
+                ]
+            },
+            {
+                title: 'それはしながら...',
+                summary: 'ながら is a pattern that is used to express that the subject does two actions at the same time',
+                examples: [
+                    {
+                        japanese: `アニメを見ながらご飯を食べます`,
+                        english: `I eat lunch while watching anime`,
+                        explanation: `ながら substitute the ます of the ${addFurigana('動詞', 'どうし')}, then followed by the other action`
+                    }
+                ]
+            },
+            {
+                title: 'どうしたらいですか',
+                summary: `In japanese there's several forms of requesting adivice and giving it, all with the traditional indirect japanese approach`,
+                examples: [
+                    {
+                        japanese: `あしたの${addFurigana('日付', 'ひづけ')}は何をもってきたらいいですか`,
+                        english: `What should I bring to tommorow's date?`,
+                        explanation: `To ask for a suggetions to a situation you would use an ${addFurigana('他動詞', 'たどうし')} 
+                        plus the らいいですか pattern`
+                    },
+                    {
+                        japanese: `${addFurigana('夏', 'なつ')}休みはハワイへ行ったらどうですか`,
+                        english: `How about going to Hawaii during summer vacation?`,
+                        explanation: `To make a suggestion you should use an ${addFurigana('他動詞', 'たどうし')} plus the らどうですか pattern`
+                    },
+                    {
+                        japanese: `9時にミーティングを${addFurigana('予定', 'よてい')}したらいかがですか`,
+                        english: `How about scheduling the meething at 9 o'clock`,
+                        explanation: `To make a suggestion to your superior tough, you need to use the らいかがですか pattern instead`
+                    },
+                    {
+                        japanese: `デービッドはあのレストランの食べ物${addFurigana('価格', 'かかく')}高いと思っています`,
+                        english: `David thinks that the food of that restaurant is expesive`,
+                        explanation: `と思っています can be used to express what a third person thinks about something`
+                    },
+                    {
+                        japanese: `大学の終わりに${addFurigana('開発元', 'かいはつもと')}になりたいと思っています`,
+                        english: `I want to be a developer at the end of college`,
+                        explanation: `と思っています can also be used to express the speaker's intention of doing something, otherwise
+                        if the speaker wants to state his opinion or conjecture, he should use the normal と思います`
+                    },
+                    {
+                        japanese: `${addFurigana('羨', 'うらや')}ましいなあ`,
+                        english: `I envy you`,
+                        explanation: `なあ is used to express the speaker's feeling or sense of admiration for someone, the plain
+                        form is used before the なあ, this is exclusive for casual conversations and should not be used when
+                        talking to a superior`
                     }
                 ]
             }
