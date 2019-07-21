@@ -19,12 +19,12 @@ const daichi_chapters = [
                         explanation: 'これ refers to something that is close to the speaker, like in it\'s hand'
                     },
                     {
-                        japanese: `それは${addFurigana('甘', 'あま')}い${addFurigana('紅茶', 'こうちゃ')}です`,
+                        japanese: `<b>それ</b>は${addFurigana('甘', 'あま')}い${addFurigana('紅茶', 'こうちゃ')}です`,
                         english: 'That is a sweet black tea',
                         explanation: 'それ refers to something that is close to the listener, not the speaker'
                     },
                     {
-                        japanese: `あれはあなたのボ-ルペンですか`,
+                        japanese: `<b>あれ</b>はあなたのボ-ルペンですか`,
                         english: 'Is that your ballpoint pen?',
                         explanation: 'あれ refers to something that is away from both the listener and speaker'
                     },
@@ -89,6 +89,108 @@ const daichi_chapters = [
                         japanese: `それは${addFurigana('誰', 'だれ')}の車ですか`,
                         english: 'Whose is that car?',
                         explanation: `${addFurigana('誰', 'だれ')}の is used to ask about ownership, is would translate closely to "Whose"`
+                    }
+                ]
+            }
+        ]
+    }, {
+        number: '3',
+        title: 'それはなんですか',
+        background: 'https://i.imgur.com/nPfpt5n.png',
+        description: 'In this chapter we learn we learn to refer to locations, how to indicate where something is, ask how much something costs and inquiry about the origin of something',
+        grammar: [
+            {
+                title: 'ここは...',
+                summary: 'In japanese you can refer to places using three methods: ここ, そこ and あそこ',
+                examples: [
+                    {
+                        japanese: `ここは${addFurigana('受付', 'うけつけ')}です`,
+                        english: 'This is the reception',
+                        explanation: 'ここ refers to somewhere that is close to the speaker, like the place where he is currently in'
+                    },
+                    {
+                        japanese: `そこは${addFurigana('事務室', 'じむしつ')}です`,
+                        english: 'That is the office',
+                        explanation: 'そこ refers to somewhere that is close to the listener, not the speaker'
+                    },
+                    {
+                        japanese: `あそこは${addFurigana('郵便局', 'ゆうびんきょく')}です`,
+                        english: 'There is the post office',
+                        explanation: 'あそこ refers to somewhere that is away from both the listener and speaker'
+                    },
+                    {
+                        japanese: `${addFurigana('銀行', 'ぎんこう')}はあそこです`,
+                        english: 'The bank is over there',
+                        explanation: 'You can use ここ, そこ and あそこ after declaring the subject of the sentence to say where the subject is located, it can be used to things, places and even persons'
+                    },
+                    {
+                        japanese: `${addFurigana('冷蔵庫', 'れいぞうこ')}はどこですか`,
+                        english: 'Where is the refrigerator?',
+                        explanation: `To ask where something is, you use the どこ before the question, it roughly translate to "Where"`
+                    },
+                    {
+                        dialog: true,
+                        actors: ["A", "B"],
+                        conversation: [
+                            {
+                                actor: 0,
+                                speech: `それはどこの車ですか`
+                            },
+                            {
+                                actor: 1,
+                                speech: `アメリカの車です`
+                            }
+                        ],
+                        explanation: 'You can use どこ with the particle の to inquiry about the origin of something, either from what country it came from or what company if it\'s a product '
+                    }
+                ]
+            },
+            {
+                title: 'いくらですか',
+                summary: 'To inquiry about the price of something, you use the word いくら',
+                examples: [
+                    {
+                        dialog: true,
+                        actors: ["A", "B"],
+                        conversation: [
+                            {
+                                actor: 0,
+                                speech: `あそこコンビニの${addFurigana('弁当', 'べんとう')}はいくらですか`
+                            },
+                            {
+                                actor: 1,
+                                speech: `${addFurigana('弁当', 'べんとう')}は八百円です`
+                            }
+                        ],
+                        explanation: 'You use いくら before the question to ask the price of the subject of the sentence'
+                    }
+                ],
+                extra: [
+                    {
+                        type: EXTRA_CONTENT_COMPOSITED_TABLE_TYPE,
+                        title: 'ここ, これ, この',
+                        description: `Now that we leaned all the indication types, we created this table to make it easier to you understand`,
+                        headers: [`こ`, `れ`, `の`],
+                        rowHeaders: [`Thing`, `Thing/Person`, `Place`],
+                        compositedTableHeader: 'Refers to...',
+                        content: [
+                            [
+                                'ここ',
+                                'そこ',
+                                'あそこ'
+                            ],
+                            [
+                                `これ`,
+                                'それ',
+                                'あれ'
+                            ],
+                            [
+                                `この + ${addFurigana('名詞', 'めいし')}`,
+                                `その + ${addFurigana('名詞', 'めいし')}`,
+                                `あの + ${addFurigana('名詞', 'めいし')}`,
+                            ]
+                        ],
+                        legend: []
                     }
                 ]
             }

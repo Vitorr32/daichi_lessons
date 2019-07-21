@@ -12,13 +12,23 @@ export default class Slides extends Component {
         }
     }
 
+    getExample(chapter, slide) {
+        const example = chapter.grammar[slide].examples[0];
+
+        if (example.dialog) {
+            return example.conversation[0].speech;
+        }
+
+        return example.japanese;
+    }
+
     render() {
         const { chapter } = this.props;
         return (
             <div className="slides">
                 <div className="content">
                     <p className="description" dangerouslySetInnerHTML={createMarkup(chapter.grammar[this.state.slideshow].summary)} />
-                    <h1 className="example" dangerouslySetInnerHTML={createMarkup(chapter.grammar[this.state.slideshow].examples[0].japanese)} />
+                    <h1 className="example" dangerouslySetInnerHTML={createMarkup(this.getExample(chapter, this.state.slideshow))} />
                 </div>
                 <div className="selector_wrapper">
                     {

@@ -22,7 +22,7 @@
 }
 
 .composited_table > table thead th {
-  padding: 20px 0px 10px 0px;
+  padding: 5px 10px;
 }
 
 .composited_table > table tbody {
@@ -32,10 +32,10 @@
 .composited_table > table tbody th {
   background: crimson;
   color: whitesmoke;
-  padding: 20px 0px 10px 0px;
+  padding: 5px 10px;
 }
 
 .composited_table > table tbody td {
   font-size: 16px;
-  padding: 20px 5px;
+  padding: 5px 10px;
 }
