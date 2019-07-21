@@ -68,20 +68,20 @@ export default class Chapter extends Component {
         return chapters.find(chapter => parseInt(chapter.number, 10) === parseInt(number) + offset);
     }
 
-    hasAfter(number, chapters) {
-        return chapters.length - 1 > chapters.findIndex(chapter => parseInt(chapter.number, 10) === parseInt(number));
+    hasAfter(currentChapter, chapters) {
+        return chapters.length - 1 !== chapters.findIndex(chapter => chapter === currentChapter);
     }
 
-    hasBefore(number, chapters) {
-        return 0 < chapters.findIndex(chapter => parseInt(chapter.number, 10) === parseInt(number));
+    hasBefore(currentChapter, chapters) {
+        return 0 !== chapters.findIndex(chapter => chapter === currentChapter);
     }
 
-    nextChapter() {
-
+    getAfter(currentChapter, chapters) {
+        return chapters[chapters.findIndex(chapter => currentChapter === chapter) + 1];
     }
 
-    previousChapter() {
-
+    getBefore(currentChapter, chapters) {
+        return chapters[chapters.findIndex(chapter => currentChapter === chapter) - 1];
     }
 
     render() {
@@ -98,15 +98,11 @@ export default class Chapter extends Component {
                 <div className="chapter_content_wrapper">
                     <div className="chapter_header background" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${chapter.background})` }}>
                         <ChapterTransitionButton
-                            show={this.hasBefore(chapter.number, chapters)}
-                            target={`/daichi/${parseInt(chapter.number, 10) - 1}`}
-                            chapter={this.getChapterFromNumber(chapter.number, -1)}
-                            action={this.nextChapter} left />
+                            show={this.hasBefore(chapter, chapters)}
+                            chapter={this.getBefore(chapter, chapters)} left />
                         <ChapterTransitionButton
-                            show={this.hasAfter(chapter.number, chapters)}
-                            target={`/daichi/${parseInt(chapter.number, 10) + 1}`}
-                            chapter={this.getChapterFromNumber(chapter.number, 1)}
-                            action={this.previousChapter} right />
+                            show={this.hasAfter(chapter, chapters)}
+                            chapter={this.getAfter(chapter, chapters)} right />
                         <h2 className="chapter">Chapter {chapter.number}</h2>
                         <h1 className="title">{chapter.title}</h1>
                     </div>

@@ -1,27 +1,125 @@
 import { addFurigana } from "../../utils/functions";
 import { EXTRA_CONTENT_COMPOSITED_TABLE_TYPE } from "../../utils/constants";
 
+
 const daichi_chapters = [
     {
-        number: '1',
-        title: '自己紹介',
-        sub_title: 'Jikoshoukai',
-        background: 'https://i.imgur.com/GuG7avn.jpg',
-        description: 'In this chapter you learn how to introduce yourself to another person',
-        content: [
+        number: '2',
+        title: 'それはなんですか',
+        background: 'https://i.imgur.com/uBGB1qz.png',
+        description: 'In this chapter we learn how to refer to things around us, like "this", "that" and "there".\n How to make basic questions like "Who?" or "What?" , and finally how to refer to possesions like "Who\'s"',
+        grammar: [
             {
-                title: 'わたしは...',
-                description: 'Presenting yourself is the primary step to a conversation, you can either present yourself by name, role or nationality, all starts with わたしは',
-                example: [
+                title: 'それは...',
+                summary: 'In japanese you can refer to things based in they position in relation to the speaker and the listener, to do that you use one of the three: これ, それ and あれ',
+                examples: [
                     {
-                        japanese: '私はリンです',
-                        romanji: 'Watashi wa rin desu',
-                        english: 'I am Rin'
+                        japanese: `<b>これ</b>は${addFurigana('鶏肉', 'とりにく')}です, たべたいですか`,
+                        english: 'This is chicken, would you like to eat it?',
+                        explanation: 'これ refers to something that is close to the speaker, like in it\'s hand'
                     },
                     {
-                        japanese: '私は学生です',
-                        romanji: 'Watashi wa gakusei desu',
-                        english: 'I am a student'
+                        japanese: `それは${addFurigana('甘', 'あま')}い${addFurigana('紅茶', 'こうちゃ')}です`,
+                        english: 'That is a sweet black tea',
+                        explanation: 'それ refers to something that is close to the listener, not the speaker'
+                    },
+                    {
+                        japanese: `あれはあなたのボ-ルペンですか`,
+                        english: 'Is that your ballpoint pen?',
+                        explanation: 'あれ refers to something that is away from both the listener and speaker'
+                    },
+                    {
+                        japanese: `この木は${addFurigana('桜', 'さくら')}です`,
+                        english: 'This tree is a cherry tree',
+                        explanation: 'There also exist the この, その and あの, using the same logic but they are obligatorily followed by a noun, therefore they can\'t be used as the sentence subject by itself'
+                    },
+                    {
+                        japanese: `あの${addFurigana('男', 'おとこ')}は${addFurigana('誰', 'だれ')}ですか`,
+                        english: 'Who is that man?',
+                        explanation: `${addFurigana('誰', 'だれ')} is another type of question the "Who", it is used to speak about a person`
+                    },
+                    {
+                        dialog: true,
+                        actors: ["A", "B"],
+                        conversation: [
+                            {
+                                actor: 0,
+                                speech: `それは${addFurigana('鶏肉', 'とりにく')}ですか${addFurigana('豚肉', 'ぶたにく')}ですか`
+                            },
+                            {
+                                actor: 1,
+                                speech: `${addFurigana('鶏肉', 'とりにく')}です`
+                            }
+                        ],
+                        explanation: 'If you are uncertain what something is between two possibilities, you can join two senteces with ですか with both the possibilities'
+                    }
+                ]
+            },
+            {
+                title: 'なんですか',
+                summary: 'The expression なん is a interreogative word used to ask what something is, it simply means "What"',
+                examples: [
+                    {
+                        japanese: `それはなんですか`,
+                        english: 'What is that?',
+                        explanation: 'なん can be used with the ですか to form a question about the subject of the sentence'
+                    },
+                    {
+                        japanese: `これはなんの${addFurigana('雑誌', 'ざっし')}ですか`,
+                        english: 'What type of maganize is this?',
+                        explanation: 'なんの has a slight differente meaning, It is used to ask about the content of something, closely translating to "What kind of"'
+                    },
+                    {
+                        japanese: `あれはあなたのボ-ルペンですか`,
+                        english: 'Is that your ballpoint pen?',
+                        explanation: 'あれ refers to something that is away from both the listener and speaker'
+                    }
+                ]
+            },
+            {
+                title: 'わたしの...',
+                summary: 'The particle no is mainly used to indicate ownership of someone over something',
+                examples: [
+                    {
+                        japanese: `私のすき${addFurigana('焼', 'さ')}きです`,
+                        english: 'My sukiyaki',
+                        explanation: 'The particle の indicates ownership, much like the possesive apostrophe \'s as in "John\'s car" with would become "Johnの車"'
+                    },
+                    {
+                        japanese: `それは${addFurigana('誰', 'だれ')}の車ですか`,
+                        english: 'Whose is that car?',
+                        explanation: `${addFurigana('誰', 'だれ')}の is used to ask about ownership, is would translate closely to "Whose"`
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        number: '23',
+        title: '上手になりますよ',
+        background: 'https://i.imgur.com/yCtOUWW.jpg',
+        description: `In this chapter we learn to use the verb なります to indicate a change in state, also how to connect two senteces
+        by estabilishing causality`,
+        grammar: [
+            {
+                title: 'なります',
+                summary: `なります is a verb that indicates a change of condition and means 'to become'. You can use it with 
+                adjectives, verbs and nouns, see the examples:`,
+                examples: [
+                    {
+                        japanese: `暗くなります`,
+                        english: `It becomes dark`,
+                        explanation: 'When a いけよし adjective is used with なります, the い needs to be replaced with a く'
+                    },
+                    {
+                        japanese: `しずかになります`,
+                        english: `It becomes quiet`,
+                        explanation: 'With a なけよし, you need to add the particle に at the end of the adjective'
+                    },
+                    {
+                        japanese: `夜になります`,
+                        english: `It becomes night`,
+                        explanation: `The same occurs with a ${addFurigana('名詞', 'めいし')}, where a particle に is added`
                     }
                 ]
             }
@@ -30,6 +128,28 @@ const daichi_chapters = [
     {
         number: '25',
         title: 'その時は…',
+        background: 'https://i.imgur.com/yCtOUWW.jpg',
+        description: `In this chapter we learn patterns that allow us to explain ourselves, how to include a question in a bigger
+        phrase and to check if something will happen`,
+        grammar: [
+            {
+                title: 'ので',
+                summary: `ので gives the reason for the situation that is stated on the following sentece, contrary to the
+                ですから that uses the first sentence as the context to explain a subjective reason or opinion`,
+                examples: [
+                    {
+                        japanese: `あの人は有名なので,そのVIPセッションへ入いってもいい`,
+                        english: `Because that person is famous he can go in the VIP section`,
+                        explanation: 'ので is used when a overral strong statement is made, it should not be used as intention or order'
+                    },
+                    {
+                        japanese: `${addFurigana('携帯', 'けんたい')}電話は${addFurigana('鳴', 'なく')}くので...`,
+                        english: `Because that person is famous he can go in the VIP section`,
+                        explanation: 'ので is used when a overral strong statement is made, it should not be used as intention or order'
+                    }
+                ]
+            }
+        ]
     },
     {
         number: '26',

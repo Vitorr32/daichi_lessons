@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 import './ChapterTransitionButton.css';
 
-export default ({ show, target, left, chapter }) => {
+export default ({ show, left, chapter }) => {
     if (!show) {
         return null;
     }
-    
+
     return (
-        <Link to={target}
+        <Link to={`/daichi/${chapter.number}`}
             className={`chapter_transition_button ${left ? 'left' : 'right'}`}>
             <span className="label">Chapter</span>
             <span className="number">{chapter.number}</span>
