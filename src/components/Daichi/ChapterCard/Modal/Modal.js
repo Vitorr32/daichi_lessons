@@ -5,11 +5,12 @@ import DarkOverlay from '../../../DarkOverlay/DarkOverlay';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { createMarkup } from '../../../../utils/functions';
 import { faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Slides from './Slides/Slides';
 
 import './Modal.css';
+
 
 export default class ChapterCardModal extends Component {
     constructor(props) {
@@ -39,18 +40,12 @@ export default class ChapterCardModal extends Component {
                     //Setting no physhics (Tensions and friction 0) makes the change imediate
                     config: { tension: 0, friction: 0 }
                 })
-                /*
-                await next({
-                    top: `${window.innerHeight / 2 - wrapperBounds.height / 2}px`,
-                    left: `${window.innerWidth / 2 - wrapperBounds.width / 2}px`,
-                    config: config.gentle,
-                })*/
                 await next({
                     top: `${window.innerHeight / 2 - 600 / 2}px`,
                     left: `${window.innerWidth / 2 - 600 / 2}px`,
                     width: 600,
                     height: 600,
-                    config: { tension: 600, friction: 50,  }
+                    config: { tension: 600, friction: 50, }
                 })
                 await next({
                     from: {
@@ -96,21 +91,8 @@ export default class ChapterCardModal extends Component {
                     left: `${wrapperBounds.left}px`,
                     height: wrapperBounds.height,
                     width: wrapperBounds.width,
-                    config: { tension: 600, friction: 50,  }
+                    config: { tension: 600, friction: 50, }
                 })
-                /*
-                await next({
-                    //From full size modal to normal size
-                    top: `${window.innerHeight / 2 - wrapperBounds.height / 2}px`,
-                    left: `${window.innerWidth / 2 - wrapperBounds.width / 2}px`,
-                    height: wrapperBounds.height,
-                    width: wrapperBounds.width,
-                })
-                await next({
-                    //Send back to the original position
-                    top: `${wrapperBounds.top}px`,
-                    left: `${wrapperBounds.left}px`
-                })*/
                 await next({
                     //Hide element from view
                     from: { opacity: 1 },
@@ -153,9 +135,7 @@ export default class ChapterCardModal extends Component {
                                     >
                                         <button className="exit" onClick={closeModal}><FontAwesomeIcon icon={faTimes} /></button>
                                         <h1 className="title">{chapter.title}</h1>
-                                        <p className="description">
-                                            {chapter.description}
-                                        </p>
+                                        <p className="description" dangerouslySetInnerHTML={createMarkup(chapter.description)} />
 
                                         <Slides chapter={chapter} />
 

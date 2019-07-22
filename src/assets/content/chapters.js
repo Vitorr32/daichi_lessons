@@ -93,7 +93,8 @@ const daichi_chapters = [
                 ]
             }
         ]
-    }, {
+    },
+    {
         number: '3',
         title: 'それはなんですか',
         background: 'https://i.imgur.com/nPfpt5n.png',
@@ -191,6 +192,96 @@ const daichi_chapters = [
                             ]
                         ],
                         legend: []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        number: '4',
+        title: '何をしますか',
+        background: 'https://i.imgur.com/dKUakdN.png',
+        description: `In this chapter we learn how to use verbs, they are called ${addFurigana('動詞', 'どうし')} both in the possitive and negative form. Also we learn how to indicate where a action happens`,
+        grammar: [
+            {
+                title: '...します',
+                summary: 'Verbs in the non-past form, meaning either the present or future time, ends with the expression ます',
+                examples: [
+                    {
+                        japanese: `マリアさんは${addFurigana('弁当', 'べんとう')}を買います`,
+                        english: 'Maria buys a boxed lunch',
+                        explanation: `Here we see the verb 買う in the non-past form 買います, and before it we use the particle を to indicate the sentence action, it can also be used to express the speaker intention`
+                    },
+                    {
+                        japanese: `ゲームをします.それから, 昼ご飯んを食べます`,
+                        english: 'I play a game and then eat lunch',
+                        explanation: `それから is used to connect two actions with a sense of "one after another", it roughly translate to "and then"`
+                    },
+                    {
+                        japanese: `サッカーとテニスをします`,
+                        english: 'I play soccer and tennis',
+                        explanation: `The particle と is used to connect two or more nouns to the same action, it roughly translate to "and"`
+                    },
+                    {
+                        dialog: true,
+                        actors: ["A", "B"],
+                        conversation: [
+                            {
+                                actor: 0,
+                                speech: `マリアさんは何を買います`
+                            },
+                            {
+                                actor: 1,
+                                speech: `${addFurigana('弁当', 'べんとう')}を買います`
+                            }
+                        ],
+                        explanation: `何 is a interrogative word, it is used together with a ${addFurigana('動詞', 'どうし')} to ask about the verb action.`
+                    },
+                    {
+                        japanese: `これは何のカタログですか`,
+                        english: 'What is this catalog about?',
+                        explanation: `When 何 is used together with syllabes from the な(な, ね, に, の, ぬ), た(た, て, ち, と, つ) or だ(だ, で, ど, づ) he is read as なん, not なに`
+                    },
+                    {
+                        japanese: `ここは何${addFurigana('階', 'かい')}ですか`,
+                        english: 'What floor is this?',
+                        explanation: `何 is read as なん too wehn is used together with counter suffix like: ${addFurigana('階', 'かい')}, 時, ${addFurigana('枚', 'まい')} and others`
+                    },
+                    {
+                        japanese: `家で${addFurigana('料理', 'りょうり')}をします`,
+                        english: 'I cook at home',
+                        explanation: 'When you use the particle で after a place, you are informing the place where the action is taking, or will take, place'
+                    },
+                    {
+                        japanese: `そのシャツはどこで買いますか`,
+                        english: 'Where do you buy that shirt?',
+                        explanation: `どこ with the particle で in a phrase with a ${addFurigana('動詞', 'どうし')} is used to ask where an action takes place`
+                    }
+                ]
+            },
+            {
+                title: '...しません',
+                summary: `There's also the negative form of the non-past ${addFurigana('動詞', 'どうし')} the ません`,
+                examples: [
+                    {
+                        japanese: `${addFurigana('宿題', 'しゅくだい')}をしません`,
+                        english: 'I do not do my homework',
+                        explanation: `To use the negative form of the non-past ${addFurigana('動詞', 'どうし')} you need to substitute the ending ます with ません`
+                    },
+                    {
+                        dialog: true,
+                        actors: ["マリア", "カロス "],
+                        conversation: [
+                            {
+                                actor: 1,
+                                speech: `マリアさんは何を読みますか`
+                            },
+                            {
+                                actor: 0,
+                                speech: `何も読みません`
+                            }
+                        ],
+                        explanation: `何 with the particle も and the negative form of the ${addFurigana('動詞', 'どうし')} indicates a total denial of that action`
                     }
                 ]
             }
