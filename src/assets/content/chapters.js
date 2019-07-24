@@ -288,6 +288,66 @@ const daichi_chapters = [
         ]
     },
     {
+        number: '5',
+        title: '今は何時ですか',
+        background: 'https://i.imgur.com/dKUakdN.png',
+        description: `In this chapter we learn how to ask and talk about the current hour of the day, how to indicate at what hour a action takes place, or even during a certain period of time. And we see the past form of the japanese ${addFurigana('動詞', 'どうし')}`,
+        grammar: [
+            {
+                title: '何時ですか',
+                summary: `The kanji ${addFurigana('時', 'じ')} is the kanji for hours, and the kanji ${addFurigana('分', 'ふん')} between other things, is used to indicate the minutes, with these two we can indicate at what time something happened`,
+                examples: [
+                    {
+                        japanese: `今は8時30分です`,
+                        english: 'Now it\'s 8:30',
+                        explanation: `Using the ${addFurigana('時', 'じ')} and ${addFurigana('分', 'ふん')} we can inform what time is now`
+                    },
+                    {
+                        japanese: `私は毎日ち10時20分に${addFurigana('寝', 'ね')}ます`,
+                        english: 'I sleep at 10:20 every day',
+                        explanation: `To express that a action happened at certain time, you only need to inform the time and use the particle に before the ${addFurigana('動詞', 'どうし')}`
+                    },
+                    {
+                        japanese: `何時に${addFurigana('起', 'お')}きますか`,
+                        english: 'At what time does you wake up?',
+                        explanation: `To inquiry when a action happens, you use the question 何時 that translate to "what time" with the particle に to indicate that , in this instance means "at", generating a expression "at what time X happen"`
+                    },
+                    {
+                        japanese: `私は${addFurigana('会社', 'かいしゃ')}で8時30分から12時まで${addFurigana('働', 'はたら')}きます`,
+                        english: 'I work in the company from 8:30 to 12:00',
+                        explanation: `To define a range of time at wich a action takes place, you use から after the start time and まで after the second time, note that then there's no particle between まで and the ${addFurigana('動詞', 'どうし')}`
+                    },
+                    {
+                        japanese: `${addFurigana('説明会', 'せつめいかい')}は何時からですか`,
+                        english: 'What time does the briefing start?',
+                        explanation: `You can inquiry when something starts, using から, or end, using まで, together with the question expression ですか, You can also state the time something starts or end on the same form but with only です at the end`
+                    },
+                    {
+                        japanese: `10時ごろ${addFurigana('練習', 'れんしゅう')}しました`,
+                        english: 'I started praticing at around 10 o\'clock',
+                        explanation: `The ごろ particle is used to indicate an aproximate time, it means "around/about"`
+                    }
+                ]
+            },
+            {
+                title: '..しました',
+                summary: `There's also the past form of ${addFurigana('動詞', 'どうし')}, that implies actions that already happened`,
+                examples: [
+                    {
+                        japanese: `先週${addFurigana('定食', 'ていしょく')}を食べました`,
+                        english: 'I had a set meal last week',
+                        explanation: `To use the past form of a ${addFurigana('動詞', 'どうし')} you have to change the ます to ました, do note that if you use a time specific word like 先週 you should not add a particle after`
+                    },
+                    {
+                        japanese: `昨日${addFurigana('研究', 'けんきゅう')}しませんでした`,
+                        english: 'I did not research yesterday',
+                        explanation: `To use the negative past form of a ${addFurigana('動詞', 'どうし')} you have to change the ました to ませんでした`
+                    }
+                ]
+            }
+        ]
+    },
+    {
         number: '23',
         title: '上手になりますよ',
         background: 'https://i.imgur.com/yCtOUWW.jpg',
