@@ -1,14 +1,13 @@
 .daichi {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .daichi > .content {
-  margin-top: 20px;
   flex: 1;
+  padding: 10px;
 }
 
 .daichi > .content h1 {

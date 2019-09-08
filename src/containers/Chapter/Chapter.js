@@ -11,6 +11,7 @@ import { Transition, config } from 'react-spring/renderprops';
 
 import './Chapter.css';
 import ChapterContent from '../../components/Chapter/ChapterContent/ChapterContent';
+import { createMarkup } from '../../utils/functions';
 
 export default class Chapter extends Component {
     constructor(props) {
@@ -43,7 +44,7 @@ export default class Chapter extends Component {
     }
 
     getChapterFromParams(chapterIndex, grammarIndex = 0) {
-        if (!chapterIndex) {
+        if (!chapterIndex || isNaN(chapterIndex)) {
             return this.setState({ chapter: null, grammar: null });
         }
 
@@ -54,7 +55,7 @@ export default class Chapter extends Component {
         }
 
         //If the selected chapter number is above or under the actual number of grammar rules
-        if (grammarIndex < 0 || grammarIndex >= chapter.grammar.length) {
+        if (grammarIndex < 0 || grammarIndex >= chapter.grammar.length || isNaN(grammarIndex)) {
             return this.setState({ chapter, grammar: null });
         }
 
@@ -92,6 +93,12 @@ export default class Chapter extends Component {
             return <Redirect to='/daichi' />
         }
 
+        console.log(grammar);
+
+        if(grammar === null){
+            return <Redirect to={`/daichi/${chapter.number}`} />
+        }
+
         return (
             <main id="chapter">
                 <Header />
@@ -104,7 +111,7 @@ export default class Chapter extends Component {
                             show={this.hasAfter(chapter, chapters)}
                             chapter={this.getAfter(chapter, chapters)} right />
                         <h2 className="chapter">Chapter {chapter.number}</h2>
-                        <h1 className="title">{chapter.title}</h1>
+                        <h1 dangerouslySetInnerHTML={createMarkup(chapter.title)} className="title"></h1>
                     </div>
                     <Transition
                         items={grammar}

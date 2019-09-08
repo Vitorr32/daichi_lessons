@@ -1,74 +1,70 @@
 .chapter_card {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    transition: all .3s ease-in-out;
-    margin: 10px;
-    color: whitesmoke;
-    text-decoration: none;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 .chapter_card:hover {
-    transform: translateY(-3px);
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.chapter_card .description, .chapter_card .header {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.chapter_card .description,
+.chapter_card .header {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.chapter_card .header .title, .chapter_card .header .sub_title, .chapter_card .description legend {
-    padding: 10px;
-    color: whitesmoke;
-    text-align: center;
+.chapter_card .header .title,
+.chapter_card .header .sub_title,
+.chapter_card .description legend {
+  padding: 10px;
+  color: whitesmoke;
+  text-align: center;
 }
 
 .chapter_card .description {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .chapter_card .description legend {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .chapter_card .chapter_wrapper {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 100%;
-    background: crimson;
-    color: whitesmoke;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border: 2px solid whitesmoke;
-    z-index: 2;
+  margin: 10px 10px 0 auto;
+  border-radius: 100%;
+  background: crimson;
+  color: whitesmoke;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid whitesmoke;
+  z-index: 2;
 }
 
 .chapter_card .chapter_wrapper .chapter {
-    font-size: 20px;
-    text-align: center;
-    color: whitesmoke;
+  font-size: 20px;
+  text-align: center;
+  color: whitesmoke;
 }
 
 .chapter_card .chapter_wrapper legend {
-    font-size: 12px;
-    text-align: center;
+  font-size: 12px;
+  text-align: center;
 }
