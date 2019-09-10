@@ -1110,6 +1110,121 @@ const daichi_chapters = [
         ]
       }
     ]
+  },
+  {
+    number: '29',
+    title: `誰が決めたの？`,
+    background: '',
+    description: `In this chapter we learn how to list actions and states in your point of view, and how to indicate a decision that you or someone else has decided`,
+    grammar: [
+      {
+        title: `学食の${addFurigana('値段', 'ねだん')}は安いし...`,
+        summary: `When we want to state several states or actions in our point of view, we use the ~し pattern`,
+        examples: [
+          {
+            japanese: `この学食${addFurigana(
+              '料理',
+              'りょうり'
+            )}が${addFurigana('不味', 'まず')}いだし,${addFurigana(
+              '値段',
+              'ねだん'
+            )}が高いし, 悪いです!`,
+            english:
+              'That student cafeteria cuisine is tasteless, expensive and bad!',
+            explanation: `To use the ~し pattern the adjective or verb before it needs to be at the plain form, note that the numbers of sentences with ~し is not limited, one is enough`
+          },
+          {
+            japanese: `${addFurigana(
+              '新入社員',
+              'しんにゅうしゃいん'
+            )}は${addFurigana('優', 'やさ')}しし, 今仕事は${addFurigana(
+              '面白',
+              'おもしろ'
+            )}くなります`,
+            english: `The new employees are nice, now work is interesting`,
+            explanation: `You can use the ~し pattern to reach into a conclusion from your point of view about the statements made`
+          },
+          {
+            japanese: `${addFurigana('都会', 'とかい')}の${addFurigana(
+              '暮',
+              'く'
+            )}らしをしたいです. にぎやかだし...`,
+            english: `I want to live in the city, it's lively...`,
+            explanation: `The concluding statement of a ~し pattern sentence can also be ommitted to indicate there's more than one reason`
+          },
+          {
+            japanese: `この${addFurigana(
+              '町',
+              'まち'
+            )}の道もきれいし, 人も${addFurigana(
+              '優',
+              'やさ'
+            )}しし, ${addFurigana(
+              '公園',
+              'こうえん'
+            )}も大きだし, いい${addFurigana('町', 'まち')}です`,
+            english: `The streets of this town are clean, the people are kind, the park is big, It’s a good town`,
+            explanation: `since this pattern can be used to list elements or parts of the subject, the particle も can be used`
+          },
+          {
+            japanese: `古いけど, 広い家を${addFurigana('借', 'か')}りた`,
+            english: `I rented a ould but big house`,
+            explanation: `As a extra, the particle けど express a inversal and means "but", normally only used in conversations`
+          }
+        ]
+      },
+      {
+        title: `...ことにしました`,
+        summary: `There's several ways to explain that something was decided, either by you or a superior entities`,
+        examples: [
+          {
+            japanese: `私は先週からジャンクフードを食べないことにしました`,
+            english: 'I decided not to eat junk food since last week',
+            explanation: `~ことにしました pattern is usde to inform about thing you have decided to do, the ${addFurigana(
+              '動詞',
+              'どうし'
+            )} before needs to be in the dictionary form or the informal negative ない form`
+          },
+          {
+            japanese: `私は来年${addFurigana(
+              '自炊',
+              'じすい'
+            )}をすることにしました`,
+            english: 'I decided to cook for myself next year',
+            explanation: `~ことにしました pattern can also be used to a decision you made now, but the content of the decision will only happen in the future`
+          },
+          {
+            japanese: `${addFurigana(
+              '台風',
+              'たいふう'
+            )}から, 来週のツアーは ${addFurigana(
+              '中断',
+              'ちゅうだん'
+            )}することになりました`,
+            english: `Due to the typhoon, it has been decided that next week's tour will be suspended`,
+            explanation: `~ことになりました indicates that the decision is made not by the speaker, but by beign informed of it, or by someone else order`
+          },
+          {
+            japanese: `うちの会社では水曜日働くないことになっています`,
+            english: `It's been decided that our company will not work on wednesday`,
+            explanation: `~ことになっています indicates a decision that is passed down on a company, a regulation or law, or a custom of a group, that is a decision made by a entity, not a singular person`
+          },
+          // {
+          //   japanese: `この仕事は${addFurigana(
+          //     '責任',
+          //     'せきにん'
+          //   )}のある仕事です`,
+          //   english: `This is a job with responsibility`,
+          //   explanation: `The particle の can be used instead of が whe`
+          // },
+          {
+            japanese: `ブラジルへ転勤することになったんだ`,
+            english: `I was transferred to Brazi`,
+            explanation: `~ことになっています indicates a decision that is passed down on a company, a regulation or law, or a custom of a group, that is a decision made by a entity, not a singular person`
+          }
+        ]
+      }
+    ]
   }
 ];
 
